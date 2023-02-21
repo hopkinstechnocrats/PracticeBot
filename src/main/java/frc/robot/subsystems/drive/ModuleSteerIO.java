@@ -4,12 +4,12 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.sensors.CANCoder;
 
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.AnalogEncoder;
 import frc.robot.Constants;
 import lib.iotemplates.ClosedLoopIO;
 import lib.talonconfiguration.BaseTalonFXConfiguration;
@@ -29,7 +29,7 @@ public class ModuleSteerIO implements ClosedLoopIO {
     double toBeModuled;
 
     WPI_TalonFX steerMotor;
-    AnalogEncoder encoder;
+    CANCoder encoder;
     Rotation2d offset;
     double tempOffset;
     double positionSetPointRad;
@@ -52,7 +52,7 @@ public class ModuleSteerIO implements ClosedLoopIO {
         // set status frame period of steer motor
         steerMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_1_General, 20);
         m_canCoderSteeringPIDController.enableContinuousInput(-Math.PI, Math.PI);
-        encoder = new AnalogEncoder(encoderPort);
+        encoder = new CANCoder(encoderPort);
         offset = new Rotation2d(encoderOffset);
 
         //inst.getTable("SmartDashboard").getEntry("KpTurning Controller").setDouble(0.0);
