@@ -71,6 +71,7 @@ public class SwerveModule {
 
   /**
    * Sets the desired state for the module.
+   * if speed is 0, keep current angle.
    *
    * @param desiredState Desired state with speed and angle.
    */
@@ -82,10 +83,19 @@ public class SwerveModule {
     }
   }
 
+   /**
+   * Sets the desired state for the module, even if speed is 0.
+   *
+   * @param desiredState Desired state with speed and angle.
+   */
+  public void setDefenceState(SwerveModuleState desiredState) {
+    this.desiredState = desiredState;
+  }
+
   //Rotates module to 0 radians(defaut)
 
   public void setBrakeMode(Boolean brakeBoolean) {
-    driveIO.setBrakeMode(true);
+    driveIO.setBrakeMode(brakeBoolean);
   }
 
   //Sets offset for this power cycle - needed to use built in encoder for PID
