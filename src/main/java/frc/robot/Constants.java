@@ -95,10 +95,10 @@ public final class Constants {
     public static final TrapezoidProfile.Constraints kThetaControllerConstraints = new TrapezoidProfile.Constraints(
       kMaxAngularSpeedRadiansPerSecond, kMaxAngularSpeedRadiansPerSecondSquared);
 
-    public static final double kFrontRightOffset = 0; // TODO: Set Values
-    public static final double kFrontLeftOffset = 0;
-    public static final double kRearRightOffset = 0;
-    public static final double kRearLeftOffset = 0;
+    public static final double kFrontRightOffset = -2.4999109108979325;
+    public static final double kFrontLeftOffset = 2.3499191316655376;
+    public static final double kRearRightOffset = 1.5450465997428946;
+    public static final double kRearLeftOffset = 0.9287476596124056;
   }
 
   public static final class ModuleConstants {

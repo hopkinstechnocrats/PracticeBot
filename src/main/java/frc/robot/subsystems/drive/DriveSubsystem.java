@@ -167,11 +167,11 @@ public class DriveSubsystem extends SubsystemBase {
     ySpeed = negate*MathUtil.applyDeadband(ySpeed, 0.2);
     xSpeed =  negate*MathUtil.applyDeadband(xSpeed, 0.2);
 
-    if (xSpeed != 0) {
-      xSpeed = xSpeed + rTrigger * DriveConstants.kBoostModifier;
+    if (Math.abs(xSpeed) > 0.2) {
+      xSpeed = xSpeed + (xSpeed/Math.abs(xSpeed)) * rTrigger * DriveConstants.kBoostModifier;
     }
-    if (ySpeed != 0) {
-      ySpeed = ySpeed + rTrigger * DriveConstants.kBoostModifier;
+    if (Math.abs(ySpeed) > 0.2) {
+      ySpeed = ySpeed + (ySpeed/Math.abs(ySpeed)) * rTrigger * DriveConstants.kBoostModifier;
     }
 
     rot = rotFilter.calculate(rot);

@@ -78,6 +78,7 @@ public class ModuleSteerIO implements ClosedLoopIO {
         inputs.positionRad = getAbsPosition().getRadians();
         inputs.appliedVolts = steerMotor.getMotorOutputVoltage();
         inputs.positionSetpointRad = setpoint;
+        table.getEntry("CanCoderROt").setDouble(getCanCoderPosition().getRadians());
         inputs.toLog(table);
 
         m_canCoderSteeringPIDController.setP(Constants.ModuleConstants.kPModuleTurningController);
