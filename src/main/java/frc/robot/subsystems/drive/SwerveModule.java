@@ -88,7 +88,7 @@ public class SwerveModule {
    *
    * @param desiredState Desired state with speed and angle.
    */
-  public void setDefenceState(SwerveModuleState desiredState) {
+  public void setDefenseState(SwerveModuleState desiredState) {
     this.desiredState = desiredState;
   }
 
