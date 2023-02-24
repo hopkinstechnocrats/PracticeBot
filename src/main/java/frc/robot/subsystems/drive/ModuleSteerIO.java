@@ -100,7 +100,7 @@ public class ModuleSteerIO implements ClosedLoopIO {
 
     //Get position using CanCoder
     public Rotation2d getCanCoderPosition() {
-        return Rotation2d.fromRadians(encoder.getAbsolutePosition()).minus(offset);
+        return Rotation2d.fromDegrees(encoder.getAbsolutePosition() - offset.getDegrees());
     }
 
     //Calculates temporary offset as: tempOffset =  Falcon Encoder Value - (Cancoder value - Offset)
